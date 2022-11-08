@@ -22,9 +22,7 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Build Storybook
-        run: npm run build-storybook
-        with:
-          node-version: 16
+        run: npm run build-storybook --openssl-legacy-provider --force
 
       - name: Deploy Storybook
         run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
