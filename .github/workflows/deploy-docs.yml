@@ -17,7 +17,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: echo 'NODE_OPTIONS="--openssl-legacy-provider"' >> $GITHUB_ENV
+      - run: node --version
+        env:
+          NODE_OPTIONS: "--openssl-legacy-provider"
 
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
