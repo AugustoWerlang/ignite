@@ -1,13 +1,11 @@
 import { themes } from '@storybook/theming'
-import { initialize, mswDecorator } from 'msw-storybook-addon';
+import { addDecorator } from '@storybook/react';
+import { initializeWorker, mswDecorator } from 'msw-storybook-addon';
 
 import '../src/styles/global.css';
 
-initialize({
-  onUnhandledRequest: "bypass"
-});
-
-export const decorators = [mswDecorator];
+initializeWorker();
+addDecorator(mswDecorator);
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
