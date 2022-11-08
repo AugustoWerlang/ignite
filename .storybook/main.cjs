@@ -20,7 +20,9 @@ module.exports = {
   "staticDirs": [
     "../public"
   ],
-  viteFinal: (config, { configType }) => {
+  viteFinal: async (config, { configType }) => {
+    config.optimizeDeps.include = [...(config.optimizeDeps?.include ?? []), 'jest-mock'];
+
     if (configType == "PRODUCTION") {
       config.base = "/ignite/"
     }
