@@ -20,7 +20,7 @@ module.exports = {
   "staticDirs": [
     "../public"
   ],
-  viteFinal: async (config, { configType }) => {
+  viteFinal: (config, { configType }) => {
     if (configType == "PRODUCTION") {
       config.base = "/ignite/"
     }
